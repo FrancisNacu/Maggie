@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+.page-container {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-one-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+
+.page-one-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.page-one-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-one-card {
+  width: 100%;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #ec4899;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0.5rem 0 0 0;
+}
+
+.card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .page-one-container {
+    flex-direction: row;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .page-one-image {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .page-one-card {
+    flex: 1;
+    min-width: 0;
+    padding: 2.5rem;
+  }
+
+  .card-title {
+    font-size: 2.5rem;
+  }
+
+  .card-features {
+    gap: 1.25rem;
+  }
+}
+
+.card {
+  background-color: rgb(255, 246, 234);
+  width: 85vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3em;
+}
+
+.valentine-button {
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  color: white;
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.4);
+  transition: all 0.3s ease;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.valentine-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(244, 63, 94, 0.6);
+  animation: pulse 0.5s ease-in-out;
+}
+
+.valentine-button:active {
+  transform: scale(0.95);
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 15px 35px rgba(244, 63, 94, 0.6);
+  }
+  50% {
+    box-shadow: 0 20px 45px rgba(244, 63, 94, 0.8);
+  }
+}
+
+.exploding-heart {
+  position: fixed;
+  font-size: 4rem;
+  pointer-events: none;
+  z-index: 9999;
+  animation: explode 4s ease-out forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(var(--tx), var(--ty)) scale(4);
+    opacity: 0;
+  }
+}
