@@ -12,3 +12,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+html, body {
+  overscroll-behavior-y: contain; /* prevents pull-to-refresh */
+  touch-action: pan-y; /* allows vertical swipes inside container */
+}

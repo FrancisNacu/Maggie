@@ -89,6 +89,12 @@
   font-size: 1.5rem;
 }
 
+/* tell mobile this container handles vertical scrolling manually */
+div.snap-y {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
 /* Tablet and Desktop */
 @media (min-width: 768px) {
   .page-one-container {
