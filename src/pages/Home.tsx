@@ -2,6 +2,8 @@ import { useRef, useEffect, useState } from 'react'
 import image from '../assets/image.jpg'
 import Carousel from '../components/Carousel.tsx'
 import ValentineFlipCard from '../components/FlipCard.tsx'
+import FloatingHearts from '../components/FloatingHearts'
+
 const KISS_GIF =
     'https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3N2gycG82MDM5MXU2djExYnB2czcwYm0xaXR2cjFlZDJmdzJtZXY0dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/vX1C2TejT6OCOz2kLd/giphy.gif'
 
@@ -233,41 +235,49 @@ function Home() {
             style={{ touchAction: 'pan-y', overscrollBehaviorY: 'contain' }}
         >
             {/* PAGE 1 */}
-            <div className='snap-center h-svh page-container page-one bg-[url(../assets/hearts-bg.jpg)] bg-cover bg-center bg-blend-overlay h-screen flex items-center justify-center'>
-                <div className='page-one-container'>
-                    <div className='page-one-image'>
-                        <img src={image} alt='Page One' />
-                    </div>
-                    <div className='page-one-card'>
-                        <div className='card-content'>
-                            <h1 className='card-title'>Magpie</h1>
-                            <p className='card-subtitle'>Your special Valentine</p>
-                            <p className='card-description'>
-                                Kindaa been chillin and just ended up with this sooooo yeaaa!
-                            </p>
-                            <div className='card-features'>
-                                {/* <div className='feature'>
-                                    <span className='feature-icon'>💕</span>
-                                    <span>This is a little something special for you</span>
-                                </div> */}
-                                {/* <div className='feature'>
-                                    <span className='feature-icon'>📸</span>
-                                    <span>Photo gallery</span>
-                                </div> */}
-                                <div className='feature'>
-                                    <div>No pressure</div>
-                                    <div>
-                                        <img
-                                            src={SIDEEYE_GIF}
-                                            alt="Kiss"
-                                            className="w-25 h-auto"
-                                        />
-                                    </div>
+            <div className="snap-center h-svh page-container page-one relative bg-[url(../assets/hearts-bg.jpg)] bg-cover bg-center">
 
+                {/* floating hearts layer */}
+                <FloatingHearts count={24} />
+
+                {/* content layer */}
+                <div className="page-one-container relative z-10">
+                    <div className="page-one-image">
+                        <img src={image} alt="Page One" />
+                    </div>
+
+                    <div className="page-one-card">
+                        <div className="card-content">
+                            <h1 className="card-title">Magpie</h1>
+                            <p className="card-subtitle">Your special Valentine</p>
+                            <p className="card-description">
+                                Uhmmm sooo you probably already know what this is foooor buuut . . .
+                            </p>
+
+                            <div className="card-features">
+                                <div className="feature">
+                                    <div>No pressure</div>
+                                    <img src={SIDEEYE_GIF} alt="Side eye" className="w-25 h-auto" />
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* PAGE 3 */}
+            <div className="snap-center h-svh page-container page-three bg-blue-50">
+                <div className="flex flex-col items-center justify-center gap-6 h-full text-center px-4">
+                    <h1 className="text-3xl font-semibold text-blue-900">
+                        Placeholder Memories
+                    </h1>
+                    <Carousel
+                        width="90dvw"
+                        height="80dvh"
+                    />
+                    <p className="text-sm text-gray-500 font-mono tracking-wide">
+                        Pictures together not found. Loading fallback images…
+                    </p>
                 </div>
             </div>
 
@@ -280,22 +290,6 @@ function Home() {
                     width='30svh'
                     height='50svh'
                 />
-            </div>
-
-            {/* PAGE 3 */}
-            <div className="snap-center h-svh page-container page-three bg-blue-50">
-                <div className="flex flex-col items-center justify-center gap-6 h-full text-center px-4">
-                    <h1 className="text-3xl font-semibold text-blue-900">
-                        Us? Maybe . . .
-                    </h1>
-                    <Carousel
-                        width="90dvw"
-                        height="80dvh"
-                    />
-                    <p className="text-sm text-gray-500 font-mono tracking-wide">
-                        Pictures together not found. Loading fallback images…
-                    </p>
-                </div>
             </div>
 
 
