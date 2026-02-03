@@ -274,9 +274,21 @@ function Home() {
             </div>
 
             {/* PAGE 3 */}
-            <div className='snap-center h-svh page-container page-three bg-blue-50'>
-                <Carousel width='95dvw' height='90dvh' />
+            <div className="snap-center h-svh page-container page-three bg-blue-50">
+                <div className="flex flex-col items-center justify-center gap-6 h-full text-center px-4">
+                    <h1 className="text-3xl font-semibold text-blue-900">
+                        Us, Apparently
+                    </h1>
+                    <Carousel
+                        width="90dvw"
+                        height="80dvh"
+                    />
+                    <p className="text-sm text-gray-500 font-mono tracking-wide">
+                        Pictures together not found. Loading fallback images…
+                    </p>
+                </div>
             </div>
+
 
             {/* PAGE 4 */}
             <div className='snap-center h-svh page-container page-four bg-purple-50 relative'>
