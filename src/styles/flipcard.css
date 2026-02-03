@@ -1,0 +1,94 @@
+/* ==============================
+   Wrapper (Layout-neutral)
+============================== */
+
+.val-card-wrapper {
+  display: inline-block;
+}
+
+/* ==============================
+   Floating / Idle Animation Layer
+============================== */
+
+.val-card-float {
+  animation: idleFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ==============================
+   Card (SIZED HERE)
+============================== */
+
+.val-card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+}
+
+/* Flip */
+.val-card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* ==============================
+   Card Faces
+============================== */
+
+.val-card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  backface-visibility: hidden;
+  box-shadow:
+    0 20px 40px rgba(255, 105, 135, 0.25),
+    inset 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.val-card-front {
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  color: white;
+}
+
+.val-card-back {
+  background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+  color: #b03060;
+  transform: rotateY(180deg);
+}
+
+/* ==============================
+   Idle Animation
+============================== */
+
+@keyframes idleFloat {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotateZ(0.5deg);
+  }
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+}
+
+/* ==============================
+   Reduced Motion
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .val-card-float {
+    animation: none;
+  }
+
+  .val-card {
+    transition: none;
+  }
+}
