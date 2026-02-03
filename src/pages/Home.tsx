@@ -2,6 +2,8 @@ import { useRef, useEffect, useState } from 'react'
 import image from '../assets/image.jpg'
 import Carousel from '../components/Carousel.tsx'
 import ValentineFlipCard from '../components/FlipCard.tsx'
+const KISS_GIF =
+    'https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3N2gycG82MDM5MXU2djExYnB2czcwYm0xaXR2cjFlZDJmdzJtZXY0dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/vX1C2TejT6OCOz2kLd/giphy.gif'
 
 function Home() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -20,6 +22,7 @@ function Home() {
     const [teaseCycle, setTeaseCycle] = useState(0)
 
     const hasAcceptedRef = useRef(false)
+    const [hasAccepted, setHasAccepted] = useState(false) // 👈 NEW
 
     // ---------- ACCEPT BUTTON POSITION ----------
     const [buttonPos, setButtonPos] = useState({ x: 0, y: 0 })
@@ -68,6 +71,8 @@ function Home() {
     // ---------- ACCEPT CLICK ----------
     const handleButtonClick = () => {
         hasAcceptedRef.current = true
+        setHasAccepted(true)        // 👈 mark accepted
+        setShowAccept(false)        // 👈 never show button again
 
         if (!buttonRef.current) return
 
@@ -166,7 +171,7 @@ function Home() {
     // ---------- TEASE CYCLE ----------
     useEffect(() => {
         if (currentPage !== 3) return
-        if (!showAccept) return
+        if (!showAccept || hasAccepted) return // 👈 stop teasing after accept
 
         hasAcceptedRef.current = false
 
@@ -193,7 +198,7 @@ function Home() {
         }, teaseDelay)
 
         return () => clearTimeout(teaseTimer)
-    }, [currentPage, showAccept, teaseCycle])
+    }, [currentPage, showAccept, teaseCycle, hasAccepted])
 
     // ---------- COUNTDOWN ----------
     useEffect(() => {
@@ -202,13 +207,12 @@ function Home() {
         if (countdown <= 0) {
             setTeaseStage('idle')
 
-            // 👇 teleport while hidden
-            if (teaseCycle >= 0) {
+            if (!hasAccepted) {
                 setButtonPos(getRandomButtonPosition())
+                setShowAccept(true)
+                setTeaseCycle((c) => c + 1)
             }
 
-            setShowAccept(true)
-            setTeaseCycle((c) => c + 1)
             return
         }
 
@@ -218,7 +222,7 @@ function Home() {
         }, countdownInterval)
 
         return () => clearTimeout(timer)
-    }, [teaseStage, countdown, teaseCycle])
+    }, [teaseStage, countdown, teaseCycle, hasAccepted])
 
     return (
         <div
@@ -239,6 +243,20 @@ function Home() {
                             <p className='card-description'>
                                 Take a journey through these beautiful moments we've shared together.
                             </p>
+                            <div className='card-features'>
+                                <div className='feature'>
+                                    <span className='feature-icon'>💕</span>
+                                    <span>Beautiful memories</span>
+                                </div>
+                                <div className='feature'>
+                                    <span className='feature-icon'>📸</span>
+                                    <span>Photo gallery</span>
+                                </div>
+                                <div className='feature'>
+                                    <span className='feature-icon'>🎉</span>
+                                    <span>Special message</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -264,10 +282,21 @@ function Home() {
             <div className='snap-center h-svh page-container page-four bg-purple-50 relative'>
                 <div className='flex flex-col items-center gap-6 text-center'>
                     <h1 className='text-4xl font-bold text-purple-900'>
-                        Will you be my Valentine?
+                        {hasAccepted
+                            ? 'Thaank you, mwaaah 😘'
+                            : 'Will you be my Valentine?'}
                     </h1>
 
-                    {showAccept && (
+                    {hasAccepted && (
+                        <img
+                            src={KISS_GIF}
+                            alt="Kiss"
+                            className="w-48 h-auto animate-pop"
+                        />
+                    )}
+
+
+                    {showAccept && !hasAccepted && (
                         <button
                             ref={buttonRef}
                             onClick={handleButtonClick}
@@ -275,10 +304,10 @@ function Home() {
                             style={
                                 teaseCycle > 0
                                     ? {
-                                          position: 'absolute',
-                                          left: `${buttonPos.x}px`,
-                                          top: `${buttonPos.y}px`,
-                                      }
+                                        position: 'absolute',
+                                        left: `${buttonPos.x}px`,
+                                        top: `${buttonPos.y}px`,
+                                    }
                                     : {}
                             }
                         >
