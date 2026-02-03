@@ -183,7 +183,7 @@ function Home() {
             prefixPool[Math.floor(Math.random() * prefixPool.length)]
 
         const isFirstCycle = teaseCycle === 0
-        const teaseDelay = isFirstCycle ? 1000 : 400
+        const teaseDelay = isFirstCycle ? 2000 : 400
         const retryDelay = isFirstCycle ? 1500 : 700
         const countdownDelay = isFirstCycle ? 3000 : 1400
 
@@ -286,8 +286,9 @@ function Home() {
                 <ValentineFlipCard
                     title='To Maggie'
                     frontText='Tap to reveal 💌'
-                    backText={`Maggie, I'm going to be honest, I don't know how we got here, considering the circumstances when we first encountered each other, to our fated 3 AM convo and the following hang-outs that happened right after.
-                        \n\n\n Test one two`}
+                    backText={`Maggie, I’m so happy and grateful to have you in my life. From the first time we met, to our fated 3 AM conversation three years later, it really feels like everything lined up for us. Since then, we’ve made so many fun memories together from DEGEN VCT watchparty, fun/embarassing dares, brain-numbing escaperoom, and so much more.
+                        \n I love you and I hope that we can continue to make more memories together, especially with your upcoming trip 😚. 
+                        \n\n With that being said . . .`}
                     width='80dvw'
                     height='80dvh'
                 />
@@ -299,7 +300,7 @@ function Home() {
                 <div className='flex flex-col items-center gap-6 text-center'>
                     <h1 className='text-4xl font-bold text-purple-900'>
                         {hasAccepted
-                            ? 'Thaank you, mwaaah 😚'
+                            ? 'Thaank yooou mwaaah 😚'
                             : 'Will you be my Valentine?'}
                     </h1>
 

@@ -17,6 +17,11 @@
   will-change: transform;
 }
 
+/* Stop floating when card is flipped */
+.val-card-float:has(.val-card.flipped) {
+  animation: none;
+}
+
 /* ==============================
    Card (SIZED HERE)
 ============================== */
