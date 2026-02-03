@@ -21,6 +21,9 @@ function Home() {
 
     const hasAcceptedRef = useRef(false)
 
+    // ---------- ACCEPT BUTTON POSITION ----------
+    const [buttonPos, setButtonPos] = useState({ x: 0, y: 0 })
+
     // ---------- PLAYFUL PREFIX POOL ----------
     const prefixPool = [
         'Soooo…',
@@ -39,7 +42,6 @@ function Home() {
         'I’m just saying,',
     ]
 
-    // lock a random prefix per cycle
     const randomPrefixRef = useRef<string>('')
 
     // ---------- TEXT GENERATORS ----------
@@ -52,6 +54,16 @@ function Home() {
         teaseCycle === 0
             ? 'Okay… one more time 😌'
             : `Last time ${'fr '.repeat(teaseCycle).trim()}`
+
+    // ---------- RANDOM POSITION GENERATOR ----------
+    const getRandomButtonPosition = () => {
+        const padding = 80
+
+        return {
+            x: Math.random() * (window.innerWidth - padding * 2) + padding,
+            y: Math.random() * (window.innerHeight - padding * 2) + padding,
+        }
+    }
 
     // ---------- ACCEPT CLICK ----------
     const handleButtonClick = () => {
@@ -161,7 +173,6 @@ function Home() {
         randomPrefixRef.current =
             prefixPool[Math.floor(Math.random() * prefixPool.length)]
 
-        // Dynamic timings based on teaseCycle
         const isFirstCycle = teaseCycle === 0
         const teaseDelay = isFirstCycle ? 1000 : 400
         const retryDelay = isFirstCycle ? 1500 : 700
@@ -190,6 +201,12 @@ function Home() {
 
         if (countdown <= 0) {
             setTeaseStage('idle')
+
+            // 👇 teleport while hidden
+            if (teaseCycle >= 0) {
+                setButtonPos(getRandomButtonPosition())
+            }
+
             setShowAccept(true)
             setTeaseCycle((c) => c + 1)
             return
@@ -222,33 +239,19 @@ function Home() {
                             <p className='card-description'>
                                 Take a journey through these beautiful moments we've shared together.
                             </p>
-                            <div className='card-features'>
-                                <div className='feature'>
-                                    <span className='feature-icon'>💕</span>
-                                    <span>Beautiful memories</span>
-                                </div>
-                                <div className='feature'>
-                                    <span className='feature-icon'>📸</span>
-                                    <span>Photo gallery</span>
-                                </div>
-                                <div className='feature'>
-                                    <span className='feature-icon'>🎉</span>
-                                    <span>Special message</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* PAGE 2 */}
-            <div className="snap-center h-svh page-container page-two bg-red-50">
+            <div className='snap-center h-svh page-container page-two bg-red-50'>
                 <ValentineFlipCard
-                    title="Why I Love You"
-                    frontText="Tap to reveal 💕"
-                    backText="You make my world feel like home."
-                    width="30svh"
-                    height="50svh"
+                    title='Why I Love You'
+                    frontText='Tap to reveal 💕'
+                    backText='You make my world feel like home.'
+                    width='30svh'
+                    height='50svh'
                 />
             </div>
 
@@ -258,7 +261,7 @@ function Home() {
             </div>
 
             {/* PAGE 4 */}
-            <div className='snap-center h-svh page-container page-four bg-purple-50'>
+            <div className='snap-center h-svh page-container page-four bg-purple-50 relative'>
                 <div className='flex flex-col items-center gap-6 text-center'>
                     <h1 className='text-4xl font-bold text-purple-900'>
                         Will you be my Valentine?
@@ -269,6 +272,15 @@ function Home() {
                             ref={buttonRef}
                             onClick={handleButtonClick}
                             className='valentine-button'
+                            style={
+                                teaseCycle > 0
+                                    ? {
+                                          position: 'absolute',
+                                          left: `${buttonPos.x}px`,
+                                          top: `${buttonPos.y}px`,
+                                      }
+                                    : {}
+                            }
                         >
                             Accept ❤️
                         </button>
