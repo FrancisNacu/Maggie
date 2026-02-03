@@ -78,7 +78,7 @@
 }
 
 .feature {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   gap: 0.75rem;
   font-size: 0.95rem;

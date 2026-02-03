@@ -5,6 +5,11 @@ import ValentineFlipCard from '../components/FlipCard.tsx'
 const KISS_GIF =
     'https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3N2gycG82MDM5MXU2djExYnB2czcwYm0xaXR2cjFlZDJmdzJtZXY0dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/vX1C2TejT6OCOz2kLd/giphy.gif'
 
+// const SIDEEYE_GIF =
+//     'https://media.tenor.com/ABSZdgcclq0AAAAj/side-eye-muzabo.gif'
+
+import SIDEEYE_GIF from '../assets/image2.jpg'
+
 function Home() {
     const containerRef = useRef<HTMLDivElement>(null)
     const buttonRef = useRef<HTMLButtonElement>(null)
@@ -34,15 +39,12 @@ function Home() {
         'Okay but like…',
         'Be honest.',
         'Not you',
-        'Girl.',
-        'Bestie.',
         'Alright now.',
         'I mean…',
         'Listen.',
         'Respectfully,',
-        'No pressure but',
-        'Take your time but also',
-        'I’m just saying,',
+        'No pressure but...',
+        'I’m just saying.',
     ]
 
     const randomPrefixRef = useRef<string>('')
@@ -51,11 +53,11 @@ function Home() {
     const getTeaseText = () =>
         teaseCycle === 0
             ? 'You have to think about it huh 🙄'
-            : `${randomPrefixRef.current} still thinking about it 🤨`
+            : `${randomPrefixRef.current} Still thinking about it? 🤨`
 
     const getRetryText = () =>
         teaseCycle === 0
-            ? 'Okay… one more time 😌'
+            ? 'Okay… one more time 🙄'
             : `Last time ${'fr '.repeat(teaseCycle).trim()}`
 
     // ---------- RANDOM POSITION GENERATOR ----------
@@ -231,30 +233,37 @@ function Home() {
             style={{ touchAction: 'pan-y', overscrollBehaviorY: 'contain' }}
         >
             {/* PAGE 1 */}
-            <div className='snap-center h-svh page-container page-one'>
+            <div className='snap-center h-svh page-container page-one bg-[url(../assets/hearts-bg.jpg)] bg-cover bg-center bg-blend-overlay h-screen flex items-center justify-center'>
                 <div className='page-one-container'>
                     <div className='page-one-image'>
                         <img src={image} alt='Page One' />
                     </div>
                     <div className='page-one-card'>
                         <div className='card-content'>
-                            <h1 className='card-title'>Maggie</h1>
+                            <h1 className='card-title'>Magpie</h1>
                             <p className='card-subtitle'>Your special Valentine</p>
                             <p className='card-description'>
-                                Take a journey through these beautiful moments we've shared together.
+                                Kindaa been chillin and just ended up with this sooooo yeaaa!
                             </p>
                             <div className='card-features'>
-                                <div className='feature'>
+                                {/* <div className='feature'>
                                     <span className='feature-icon'>💕</span>
-                                    <span>Beautiful memories</span>
-                                </div>
-                                <div className='feature'>
+                                    <span>This is a little something special for you</span>
+                                </div> */}
+                                {/* <div className='feature'>
                                     <span className='feature-icon'>📸</span>
                                     <span>Photo gallery</span>
-                                </div>
+                                </div> */}
                                 <div className='feature'>
-                                    <span className='feature-icon'>🎉</span>
-                                    <span>Special message</span>
+                                    <div>No pressure</div>
+                                    <div>
+                                        <img
+                                            src={SIDEEYE_GIF}
+                                            alt="Kiss"
+                                            className="w-25 h-auto"
+                                        />
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -277,7 +286,7 @@ function Home() {
             <div className="snap-center h-svh page-container page-three bg-blue-50">
                 <div className="flex flex-col items-center justify-center gap-6 h-full text-center px-4">
                     <h1 className="text-3xl font-semibold text-blue-900">
-                        Us, Apparently
+                        Us? Maybe . . .
                     </h1>
                     <Carousel
                         width="90dvw"
@@ -295,7 +304,7 @@ function Home() {
                 <div className='flex flex-col items-center gap-6 text-center'>
                     <h1 className='text-4xl font-bold text-purple-900'>
                         {hasAccepted
-                            ? 'Thaank you, mwaaah 😘'
+                            ? 'Thaank you, mwaaah 😚'
                             : 'Will you be my Valentine?'}
                     </h1>
 
