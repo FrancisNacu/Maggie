@@ -251,7 +251,7 @@ function Home() {
                             <h1 className="card-title">Magpie</h1>
                             <p className="card-subtitle">Your special Valentine</p>
                             <p className="card-description">
-                                Uhmmm sooo you probably already know what this is foooor buuut . . .
+                                Uhmmm sooo you probably already know what this is foooor buuut . . . 
                             </p>
 
                             <div className="card-features">
@@ -269,26 +269,27 @@ function Home() {
             <div className="snap-center h-svh page-container page-three bg-blue-50">
                 <div className="flex flex-col items-center justify-center gap-6 h-full text-center px-4">
                     <h1 className="text-3xl font-semibold text-blue-900">
-                        Placeholder Memories
+                        Memories Placeholder
                     </h1>
                     <Carousel
                         width="90dvw"
                         height="80dvh"
                     />
                     <p className="text-sm text-gray-500 font-mono tracking-wide">
-                        Pictures together not found. Loading fallback images…
+                        Pictures together not found. Fallback images loaded…
                     </p>
                 </div>
             </div>
 
-            {/* PAGE 2 */}
+                        {/* PAGE 2 */}
             <div className='snap-center h-svh page-container page-two bg-red-50'>
                 <ValentineFlipCard
-                    title='Why I Love You'
-                    frontText='Tap to reveal 💕'
-                    backText='You make my world feel like home.'
-                    width='30svh'
-                    height='50svh'
+                    title='To Maggie'
+                    frontText='Tap to reveal 💌'
+                    backText={`Maggie, I'm going to be honest, I don't know how we got here, considering the circumstances when we first encountered each other, to our fated 3 AM convo and the following hang-outs that happened right after.
+                        \n\n\n Test one two`}
+                    width='80dvw'
+                    height='80dvh'
                 />
             </div>
 

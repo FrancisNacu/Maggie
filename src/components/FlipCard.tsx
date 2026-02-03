@@ -33,11 +33,11 @@ export default function ValentineFlipCard({
         >
           <div className="val-card-face val-card-front">
             <h3>{title}</h3>
-            <p>{frontText}</p>
+            <p className="val-card-text">{frontText}</p>
           </div>
 
           <div className="val-card-face val-card-back">
-            <p>{backText}</p>
+            <p className="val-card-text">{backText}</p>
           </div>
         </div>
       </div>

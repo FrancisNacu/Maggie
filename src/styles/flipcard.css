@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Quicksand:wght@400;500;600&display=swap');
+
 /* ==============================
    Wrapper (Layout-neutral)
 ============================== */
@@ -38,6 +40,10 @@
 ============================== */
 
 .val-card-face {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
   position: absolute;
   inset: 0;
   border-radius: 20px;
@@ -50,6 +56,13 @@
   box-shadow:
     0 20px 40px rgba(255, 105, 135, 0.25),
     inset 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.val-card-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  white-space: pre-line;
 }
 
 .val-card-front {
@@ -71,9 +84,11 @@
   0% {
     transform: translateY(0) rotateZ(0deg);
   }
+
   50% {
     transform: translateY(-6px) rotateZ(0.5deg);
   }
+
   100% {
     transform: translateY(0) rotateZ(0deg);
   }

@@ -31,3 +31,7 @@
     opacity: 0;
   }
 }
+
+.val-card-text {
+  white-space: pre-line;
+}
