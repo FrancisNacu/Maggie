@@ -183,7 +183,7 @@ function Home() {
             prefixPool[Math.floor(Math.random() * prefixPool.length)]
 
         const isFirstCycle = teaseCycle === 0
-        const teaseDelay = isFirstCycle ? 2000 : 400
+        const teaseDelay = isFirstCycle ? 1500 : 400
         const retryDelay = isFirstCycle ? 1500 : 700
         const countdownDelay = isFirstCycle ? 3000 : 1400
 
@@ -286,8 +286,8 @@ function Home() {
                 <ValentineFlipCard
                     title='To Maggie'
                     frontText='Tap to reveal 💌'
-                    backText={`Maggie, I’m so happy and grateful to have you in my life. From the first time we met, to our fated 3 AM conversation three years later, it really feels like everything lined up for us. Since then, we’ve made so many fun memories together from DEGEN VCT watchparty, fun/embarassing dares, brain-numbing escaperoom, and so much more.
-                        \n I love you and I hope that we can continue to make more memories together, especially with your upcoming trip 😚. 
+                    backText={`Maggie, I’m so happy and grateful to have you in my life! From the first time we met, to our fated 3 AM conversation three years later, it really feels like a dumb, but endearing situation 🤣. Since then, we’ve made so many fun memories together from DEGEN VCT watchparties, funny/embarassing dares, brain-numbing escaperooms, and so much more ❤️.
+                        \n I love you and I'm looking forward to making more memories together, especially with your upcoming trip 😚. 
                         \n\n With that being said . . .`}
                     width='80dvw'
                     height='80dvh'
