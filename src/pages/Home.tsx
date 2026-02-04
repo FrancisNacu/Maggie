@@ -183,7 +183,7 @@ function Home() {
             prefixPool[Math.floor(Math.random() * prefixPool.length)]
 
         const isFirstCycle = teaseCycle === 0
-        const teaseDelay = isFirstCycle ? 1500 : 400
+        const teaseDelay = isFirstCycle ? 1200 : 400
         const retryDelay = isFirstCycle ? 1500 : 700
         const countdownDelay = isFirstCycle ? 3000 : 1400
 
@@ -286,7 +286,8 @@ function Home() {
                 <ValentineFlipCard
                     title='To Maggie'
                     frontText='Tap to reveal 💌'
-                    backText={`Maggie, I’m so happy and grateful to have you in my life! From the first time we met, to our fated 3 AM conversation three years later, it really feels like a dumb, but endearing situation 🤣. Since then, we’ve made so many fun memories together from DEGEN VCT watchparties, funny/embarassing dares, brain-numbing escaperooms, and so much more ❤️.
+                    backText={`Maggie, I’m so happy and grateful to have you in my life! From the first time we met, to our fated 3 AM conversation three years later, it really feels like a dumb but cute situation 🤣. 
+                        Since then, we’ve made so many fun memories together from DEGEN VCT watchparties, funny/embarassing dares, brain-numbing escaperooms, and so much more ❤️.
                         \n I love you and I'm looking forward to making more memories together, especially with your upcoming trip 😚. 
                         \n\n With that being said . . .`}
                     width='80dvw'
@@ -296,11 +297,11 @@ function Home() {
 
 
             {/* PAGE 4 */}
-            <div className='snap-center h-svh page-container page-four bg-purple-50 relative'>
+            <div className='snap-center h-svh page-container page-four bg-[#fcfcfb] relative'>
                 <div className='flex flex-col items-center gap-6 text-center'>
                     <h1 className='text-4xl font-bold text-purple-900'>
                         {hasAccepted
-                            ? 'Thaank yooou mwaaah 😚'
+                            ? 'I looooveee yooou!! Mwaaah 😚'
                             : 'Will you be my Valentine?'}
                     </h1>
 
