@@ -183,7 +183,7 @@ function Home() {
             prefixPool[Math.floor(Math.random() * prefixPool.length)]
 
         const isFirstCycle = teaseCycle === 0
-        const teaseDelay = isFirstCycle ? 1200 : 400
+        const teaseDelay = isFirstCycle ? 1000 : 400
         const retryDelay = isFirstCycle ? 1500 : 700
         const countdownDelay = isFirstCycle ? 3000 : 1400
 
