@@ -286,7 +286,7 @@ function Home() {
                 <ValentineFlipCard
                     title='To Maggie'
                     frontText='Tap to reveal 💌'
-                    backText={`Maggie, I’m so happy and grateful to have you in my life! From the first time we met, to our fated 3 AM conversation three years later, it really feels like a dumb but cute situation 🤣. 
+                    backText={`Maggie, I’m so happy and grateful to have you in my life! From the first time we met, to our fated 3 AM conversation three years later, it really feels like a dumbishly cute situation 🤣. 
                         Since then, we’ve made so many fun memories together from DEGEN VCT watchparties, funny/embarassing dares, brain-numbing escaperooms, and so much more ❤️.
                         \n I love you and I'm looking forward to making more memories together, especially with your upcoming trip 😚. 
                         \n\n With that being said . . .`}
