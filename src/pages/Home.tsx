@@ -249,7 +249,7 @@ function Home() {
                     <div className="page-one-card">
                         <div className="card-content">
                             <h1 className="card-title">Magpie</h1>
-                            <p className="card-subtitle">Your special Valentine</p>
+                            <p className="card-subtitle">Hi cuuutie pieee</p>
                             <p className="card-description">
                                 Uhmmm sooo you probably already know what this is foooor buuut . . . 
                             </p>
