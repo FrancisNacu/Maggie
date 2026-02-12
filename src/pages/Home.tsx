@@ -269,7 +269,7 @@ function Home() {
             <div className="snap-center h-svh page-container page-three bg-blue-50">
                 <div className="flex flex-col items-center justify-center gap-6 h-full text-center px-4">
                     <h1 className="text-3xl font-semibold text-blue-900">
-                        Memories 
+                        Memories 💕
                     </h1>
                     <Carousel
                         width="90dvw"
